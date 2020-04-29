@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">MovieViewer_Project</string>
+    <string-array name="movie_list">
+        <item>Movie 1</item>
+        <item>Movie 2</item>
+        <item>Movie 3</item>
+        <item>Movie 4</item>
+        <item>Movie 5</item>
+    </string-array>
+    <string-array name="movie_desc">
+        <item>Movie desc 1</item>
+        <item>Movie desc 2</item>
+        <item>Movie desc 3</item>
+        <item>Movie desc 4</item>
+        <item>Movie desc 5</item>
+    </string-array>
 </resources>
