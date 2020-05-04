@@ -1,23 +1,20 @@
 package com.example.movieviewer_project;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.ViewFlipper;
 
-import com.bumptech.glide.Glide;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.frogobox.frogothemoviedbapi.ConsumeMovieApi;
 import com.frogobox.frogothemoviedbapi.callback.MovieResultCallback;
 import com.frogobox.frogothemoviedbapi.data.model.TrendingMovie;
 import com.frogobox.frogothemoviedbapi.data.response.Trending;
-import com.frogobox.frogothemoviedbapi.util.MovieConstant;
 import com.frogobox.frogothemoviedbapi.util.MovieUrl;
 import com.frogobox.recycler.FrogoRecyclerView;
 import com.frogobox.recycler.boilerplate.viewrclass.FrogoViewAdapterCallback;
@@ -26,28 +23,43 @@ import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 public class MainActivity extends AppCompatActivity {
 
     String movieList[], moviedesc[];
     RecyclerView recyclerView;
     ProgressBar progressBar;
+    ViewFlipper v_flipper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        int slider_img[] = {R.drawable.img1, R.drawable.img2, R.drawable.img3};
+
         getApiData();
         progressBar = findViewById(R.id.progress_bar);
+        v_flipper = findViewById(R.id.viewFlipper);
 
+        for (int sldr_image:slider_img)
+        {
+            slider_images(sldr_image);
+        }
+    }
+
+    public void slider_images(int images)
+    {
+        ImageView sldr_imageView = new ImageView(this);
+        sldr_imageView.setBackgroundResource(images);
+
+        v_flipper.addView(sldr_imageView);
+        v_flipper.setFlipInterval(4000);
+        v_flipper.setAutoStart(true);
+
+        v_flipper.setInAnimation(this,android.R.anim.slide_in_left);
+        v_flipper.setOutAnimation(this, android.R.anim.slide_out_right);
 
     }
 
