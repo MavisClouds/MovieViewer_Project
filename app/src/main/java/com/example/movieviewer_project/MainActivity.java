@@ -11,6 +11,7 @@ import android.widget.ViewFlipper;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.frogobox.frogothemoviedbapi.ConsumeMovieApi;
 import com.frogobox.frogothemoviedbapi.callback.MovieResultCallback;
 import com.frogobox.frogothemoviedbapi.data.model.TrendingMovie;
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         v_flipper.setOutAnimation(this, android.R.anim.slide_out_right);
 
     }
-
+    //fungsi mendapatkan data dari api
     private void getApiData(){
         ConsumeMovieApi consumeMovieApi = new ConsumeMovieApi(MovieUrl.API_KEY);
         consumeMovieApi.getTrendingMovieWeek(new MovieResultCallback<Trending<TrendingMovie>>() {
@@ -110,19 +111,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void setupInitComponent(@NotNull View view, TrendingMovie trendingMovie) {
                 //tipedata //variabel
-                TextView title = view.findViewById(R.id.title);
-                TextView subtitle = view.findViewById(R.id.desc);
-
-//                TextView title = view.findViewById(R.id.frogo_rv_type_6_tv_title);
-//                TextView subtitle = view.findViewById(R.id.frogo_rv_type_6_tv_subtitle);
-//                TextView description = view.findViewById(R.id.frogo_rv_type_6_tv_description);
-//                ImageView poster = view.findViewById(R.id.frogo_rv_type_6_iv_poster);
-
+                TextView title = view.findViewById(R.id.tv_title);
+                TextView subtitle = view.findViewById(R.id.tv_subtitle);
+                TextView description = view.findViewById(R.id.tv_description);
+                ImageView poster = view.findViewById(R.id.iv_poster);
 
                 title.setText(trendingMovie.getTitle());
                 subtitle.setText(trendingMovie.getRelease_date());
-//                description.setText(trendingMovie.getOverview());
-//                Glide.with(view.getContext()).load(MovieUrl.BASE_URL_IMAGE_ORIGNAL+trendingMovie.getPoster_path()).into(poster);
+                description.setText(trendingMovie.getOverview());
+                Glide.with(view.getContext()).load(MovieUrl.BASE_URL_IMAGE_ORIGNAL+trendingMovie.getPoster_path()).into(poster);
 
             }
 
