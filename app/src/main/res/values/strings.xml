@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MovieViewer_Project</string>
+    <string name="app_name">Movie Viewer</string>
     <string-array name="movie_list">
         <item>Movie 1</item>
         <item>Movie 2</item>
