@@ -26,7 +26,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     String movieList[], moviedesc[];
     RecyclerView recyclerView;
@@ -44,14 +44,14 @@ public class MainActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progress_bar);
         v_flipper = findViewById(R.id.viewFlipper);
 
-        for (int sldr_image:slider_img)
-        {
+        for (int sldr_image : slider_img) {
             slider_images(sldr_image);
         }
+
+
     }
 
-    public void slider_images(int images)
-    {
+    public void slider_images(int images) {
         ImageView sldr_imageView = new ImageView(this);
         sldr_imageView.setBackgroundResource(images);
 
@@ -59,12 +59,13 @@ public class MainActivity extends AppCompatActivity {
         v_flipper.setFlipInterval(4000);
         v_flipper.setAutoStart(true);
 
-        v_flipper.setInAnimation(this,android.R.anim.slide_in_left);
+        v_flipper.setInAnimation(this, android.R.anim.slide_in_left);
         v_flipper.setOutAnimation(this, android.R.anim.slide_out_right);
 
     }
+
     //fungsi mendapatkan data dari api
-    private void getApiData(){
+    private void getApiData() {
         ConsumeMovieApi consumeMovieApi = new ConsumeMovieApi(MovieUrl.API_KEY);
         consumeMovieApi.getTrendingMovieWeek(new MovieResultCallback<Trending<TrendingMovie>>() {
             @Override
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
         FrogoRecyclerView frogoRecyclerView = findViewById(R.id.recycler_view);
 
-        FrogoViewAdapterCallback frogoViewAdapterCallback = new FrogoViewAdapterCallback<TrendingMovie>(){
+        FrogoViewAdapterCallback frogoViewAdapterCallback = new FrogoViewAdapterCallback<TrendingMovie>() {
 
             @Override
             public void setupInitComponent(@NotNull View view, TrendingMovie trendingMovie) {
@@ -119,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 title.setText(trendingMovie.getTitle());
                 subtitle.setText(trendingMovie.getRelease_date());
                 description.setText(trendingMovie.getOverview());
-                Glide.with(view.getContext()).load(MovieUrl.BASE_URL_IMAGE_ORIGNAL+trendingMovie.getPoster_path()).into(poster);
+                Glide.with(view.getContext()).load(MovieUrl.BASE_URL_IMAGE_ORIGNAL + trendingMovie.getPoster_path()).into(poster);
 
             }
 
@@ -132,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClicked(TrendingMovie trendingMovie) {
                 setupIntent(trendingMovie);
             }
-        } ;
+        };
 
         frogoRecyclerView
                 .injector()
@@ -145,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setupIntent(TrendingMovie trendingMovie){
+    private void setupIntent(TrendingMovie trendingMovie) {
         String data = new Gson().toJson(trendingMovie);
         Intent intent = new Intent(this, DetailActivity.class);
         intent.putExtra("EXTRA_TRENDING_MOVIE", data);
