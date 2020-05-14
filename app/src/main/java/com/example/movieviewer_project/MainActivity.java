@@ -33,12 +33,12 @@ public class MainActivity extends BaseActivity {
     ProgressBar progressBar;
     ViewFlipper v_flipper;
 
-    @Override
+    @Override   
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int slider_img[] = {R.drawable.img1, R.drawable.img2, R.drawable.img3};
+        int slider_img[] = {R.drawable.poster1, R.drawable.poster2, R.drawable.poster3};
 
         getApiData();
         progressBar = findViewById(R.id.progress_bar);
