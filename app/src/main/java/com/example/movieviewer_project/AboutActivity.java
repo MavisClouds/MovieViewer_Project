@@ -34,8 +34,8 @@ public class AboutActivity extends BaseActivity {
     private ArrayList<Kelompok> dataKelompok() {
         ArrayList<Kelompok> kelompoks = new ArrayList<>();
         kelompoks.add(new Kelompok("Maulana Idris", "17081010040", R.drawable.frogo_rv_bg_amber_8dp));
-        kelompoks.add(new Kelompok("Guntur Adhi Prasetya", "17081010043", R.drawable.frogo_rv_bg_amber_8dp));
-        kelompoks.add(new Kelompok("Parisya Shidqi Yusyarnanda", "17081010060", R.drawable.frogo_rv_bg_amber_8dp));
+        kelompoks.add(new Kelompok("Guntur Adhi Prasetya", "17081010043", R.drawable.guntur));
+        kelompoks.add(new Kelompok("Parisya Shidqi Yusyarnanda", "17081010060", R.drawable.shidqi));
         kelompoks.add(new Kelompok("Feronika Nur Maghfiro", "17081010067", R.drawable.frogo_rv_bg_amber_8dp));
         kelompoks.add(new Kelompok("Mohammad Amir Fanani", "17081010071", R.drawable.frogo_rv_bg_amber_8dp));
         return kelompoks;
