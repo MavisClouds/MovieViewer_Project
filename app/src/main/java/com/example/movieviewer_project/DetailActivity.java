@@ -7,8 +7,10 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.frogobox.frogothemoviedbapi.data.model.SearchMovieResult;
@@ -70,4 +72,11 @@ public class DetailActivity extends BaseActivity {
     }
 
 
+    public void share(View view) {
+        Toast.makeText(getApplicationContext(), "Share", Toast.LENGTH_SHORT).show();
+    }
+
+    public void favorite(View view) {
+        Toast.makeText(getApplicationContext(), "Add to Favorite", Toast.LENGTH_SHORT).show();
+    }
 }
