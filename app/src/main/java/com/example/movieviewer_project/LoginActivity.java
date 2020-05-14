@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                         Snackbar.make(buttonLogin, "Berhasil Login", Snackbar.LENGTH_LONG).show();
                         Toast.makeText(getApplicationContext(), "Berhasil Login", Toast.LENGTH_SHORT).show();
 
-                        Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+                        Intent intent=new Intent(LoginActivity.this,NavActivity.class);
                         startActivity(intent);
                         finish();
 

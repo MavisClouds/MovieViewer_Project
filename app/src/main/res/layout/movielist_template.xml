@@ -10,8 +10,6 @@
     android:padding="16dp"
     android:background="@drawable/frogo_rv_bg_white_8dp">
 
-
-
     <ImageView
         android:id="@+id/iv_poster"
         android:layout_width="72dp"

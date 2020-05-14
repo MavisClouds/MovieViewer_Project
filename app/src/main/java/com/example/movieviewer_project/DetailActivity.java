@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.frogobox.frogothemoviedbapi.data.model.SearchMovieResult;
 import com.frogobox.frogothemoviedbapi.data.model.TrendingMovie;
 import com.frogobox.frogothemoviedbapi.util.MovieUrl;
 import com.google.gson.Gson;
@@ -33,19 +34,38 @@ public class DetailActivity extends BaseActivity {
         TextView descriptionDetail = findViewById(R.id.tv_description_detail);
         TextView titleDetail = findViewById(R.id.tv_title_detail);
 
-        String extra = getIntent().getStringExtra("EXTRA_TRENDING_MOVIE");
-        TrendingMovie trendingMovie = new Gson().fromJson(extra, TrendingMovie.class);
+        if (getIntent().hasExtra("EXTRA_TRENDING_MOVIE")){
+            String extraTrending = getIntent().getStringExtra("EXTRA_TRENDING_MOVIE");
+            TrendingMovie trendingMovie = new Gson().fromJson(extraTrending, TrendingMovie.class);
 
-        setupDetailActivity(toolbar, trendingMovie.getTitle());
+            setupDetailActivity(toolbar, trendingMovie.getTitle());
 
-        releaseDateDetail.setText(trendingMovie.getTitle());
-        rateDetail.setText(trendingMovie.getTitle());
-        popularityDetail.setText(trendingMovie.getTitle());
-        titleDetail.setText(trendingMovie.getTitle());
-        descriptionDetail.setText(trendingMovie.getOverview());
+            releaseDateDetail.setText(trendingMovie.getTitle());
+            rateDetail.setText(trendingMovie.getTitle());
+            popularityDetail.setText(trendingMovie.getTitle());
+            titleDetail.setText(trendingMovie.getTitle());
+            descriptionDetail.setText(trendingMovie.getOverview());
 
-        Glide.with(this).load(MovieUrl.BASE_URL_IMAGE_ORIGNAL + trendingMovie.getBackdrop_path()).into(posterToolbarDetail);
-        Glide.with(this).load(MovieUrl.BASE_URL_IMAGE_ORIGNAL + trendingMovie.getPoster_path()).into(posterDetail);
+            Glide.with(this).load(MovieUrl.BASE_URL_IMAGE_ORIGNAL + trendingMovie.getBackdrop_path()).into(posterToolbarDetail);
+            Glide.with(this).load(MovieUrl.BASE_URL_IMAGE_ORIGNAL + trendingMovie.getPoster_path()).into(posterDetail);
+
+        } else if (getIntent().hasExtra("EXTRA_SEARCH_MOVIE")) {
+            String extraSearch = getIntent().getStringExtra("EXTRA_SEARCH_MOVIE");
+            SearchMovieResult trendingMovie = new Gson().fromJson(extraSearch, SearchMovieResult.class);
+
+            setupDetailActivity(toolbar, trendingMovie.getTitle());
+
+            releaseDateDetail.setText(trendingMovie.getTitle());
+            rateDetail.setText(trendingMovie.getTitle());
+            popularityDetail.setText(trendingMovie.getTitle());
+            titleDetail.setText(trendingMovie.getTitle());
+            descriptionDetail.setText(trendingMovie.getOverview());
+
+            Glide.with(this).load(MovieUrl.BASE_URL_IMAGE_ORIGNAL + trendingMovie.getBackdrop_path()).into(posterToolbarDetail);
+            Glide.with(this).load(MovieUrl.BASE_URL_IMAGE_ORIGNAL + trendingMovie.getPoster_path()).into(posterDetail);
+
+        }
+
 
     }
 

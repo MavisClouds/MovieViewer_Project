@@ -15,6 +15,11 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
+    protected void setupDetailActivity(String title) {
+        getSupportActionBar().setTitle(title);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
     protected void setupDetailActivity(Toolbar toolbar, String title) {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(title);

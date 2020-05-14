@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Movie Viewer</string>
+    <string name="app_name">Trending Movie</string>
     <string-array name="movie_list">
         <item>Movie 1</item>
         <item>Movie 2</item>
@@ -14,4 +14,26 @@
         <item>Movie desc 4</item>
         <item>Movie desc 5</item>
     </string-array>
+
+    <string-array name="group_name">
+        <item>Maulana Idris</item>
+        <item>Guntur Adhi Prasetya</item>
+        <item>Parisya Shidqi Yusyarnanda</item>
+        <item>Feronika Nur Maghfiro</item>
+        <item>Mohammad Amir Fanani</item>
+    </string-array>
+
+    <string-array name="group_npm">
+        <item>17081010040</item>
+        <item>17081010043</item>
+        <item>17081010060</item>
+        <item>17081010067</item>
+        <item>17081010071</item>
+    </string-array>
+
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

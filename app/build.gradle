@@ -43,7 +43,7 @@ dependencies {
     implementation 'com.github.amirisback:frogo-recycler-view:2.2.4'
 
     // library consumable code movie tmdb api
-    implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.0.9'
+    implementation 'com.github.amirisback:consumable-code-movie-tmdb-api:1.1.1'
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
