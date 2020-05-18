@@ -1,8 +1,7 @@
 # TrendingMovieViewer_Project
 Trending Movie Viewer
 
-Daftar fitur
-Todo List :
+List fitur :
  - Splash Screen
  - Halaman Register
  - Halaman Login
