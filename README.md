@@ -1,8 +1,13 @@
-# MovieViewer_Project
-Movie Viewer
+# TrendingMovieViewer_Project
+Trending Movie Viewer
 
-Daftar fitur (ganti aja kalo emang ada yang ngga sreg)
+Daftar fitur
 Todo List :
  - Splash Screen
- - Halaman Depan (List View)
+ - Halaman Register
+ - Halaman Login
+ - Halaman Depan
  - Halaman Detail Film
+ - Search
+ - Halaman About (Kelompok)
+ - Halaman Search
